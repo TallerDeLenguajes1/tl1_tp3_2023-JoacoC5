@@ -4,23 +4,29 @@
 
 int main (){
     
-       char arre[5][100];
-       char *nombres[5], *buff=&arre[0][0];
+       //char arre[5][100];
+       char *nombres[5], *buff;
+       int cant;
 
-       for (int i = 0; i < 5; i++)
+       printf("Cuantos nombres desea ingresar: ");
+       scanf("%d", &cant);
+       fflush(stdin);
+
+       for (int i = 0; i < cant; i++)
        {
-            printf("Ingrese un nombre: ");
-            gets(buff);
+          buff = malloc(cant * sizeof (char));
+          printf("Ingrese un nombre: ");
+          gets(buff);
 
-            nombres[i] = malloc((strlen(buff)+1) * sizeof(char));
-            strcpy(nombres[i],buff);
+          nombres[i] = malloc((strlen(buff)+1) * sizeof(char));
+          strcpy(nombres[i],buff);
 
-            //free(buff);
-            //free(nombres[i]);
+          //free(buff);
+          //free(nombres[i]);
        }
 
         printf("\n\n-----LISTADO DE NOMBRES-----\n");
-       for (int j = 0; j < 5; j++)
+       for (int j = 0; j < cant; j++)
        {
             puts(nombres[j]);
        }
